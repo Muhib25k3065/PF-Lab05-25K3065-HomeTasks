@@ -1,0 +1,199 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{   
+	    
+	// Question 1
+	
+	int age;
+	printf("Enter your age: ");
+	scanf("%d",&age);
+	if (age > 0 && age < 5)
+	{
+		printf("\nFree");
+	}	else if (age >= 5 && age <= 65)
+	{
+		printf("\nStandard");
+	}	else if (age > 65 && age < 100)
+	{
+		printf("\nDiscount");
+	}	else	{
+		printf("\nInvalid age");
+	}
+	
+	printf("\n");
+	
+	// Question 2
+	
+	int power;
+	int color;
+	printf("\nEnter 1 if the power is on, and 0 if the power is off: ");
+	scanf("%d", &power);
+	switch (power)
+	{
+		case 0: printf("\nSignal off");
+		break;
+		case 1:
+			printf("\nEnter 1 for red, 2 for yellow, and 3 for green: ");
+			scanf("%d",&color);
+			switch (color)
+			{
+				case 1: printf("\nStop");
+				break;
+				case 2: printf("\nCaution");
+				break;
+				case 3: printf("\nGo");
+				break;
+			}
+		break;
+		default:  printf("\nInvalid input");
+		break;
+	}
+	
+	printf("\n");
+	
+	// Question 3
+	
+	float a, b, c, discriminant;
+	
+	printf("\nEnter value of a: ");
+	scanf("%f", &a);
+	printf("\nEnter value of b: ");
+	scanf("%f", &b);
+	printf("\nEnter value of c: ");
+	scanf("%f", &c);
+	
+	discriminant = (b*b)-(4*a*c);
+	
+	if (discriminant == 0)
+	{
+		printf("\nOne real root");
+	}	else if (discriminant > 0)
+	{
+		printf("\nTwo real roots");
+	}	else	{
+		printf("\nImaginary roots");
+	}
+	
+	printf("\n");
+	
+	// Question 4
+	
+	char CorrectUsername[] = "admin";
+	char CorrectPassword[] = "1234";
+	char EnteredUsername[50], EnteredPassword[50];
+    
+    printf("\nEnter username: ");
+    scanf("%s", &EnteredUsername);
+    
+    if (strcmp(CorrectUsername, EnteredUsername) == 0)
+    {
+    	printf("\nEnter password: ");
+    	scanf("%s", &EnteredPassword);
+    	
+    	if (strcmp(CorrectPassword, EnteredPassword) == 0)
+    	{
+    		printf("\nlogin successfull");
+		}	else	{
+			printf("\nIncorrect Password");
+		}
+	}	else	{
+		printf("\nUsername not found");
+	}	
+	
+	printf("\n");
+	
+	// Question 5
+	
+	int hasPrerequisite, isCourseFull;
+
+    printf("\nDo you have the prerequisite? (1 = Yes, 0 = No): ");
+    scanf("%d", &hasPrerequisite);
+
+    printf("\nIs the course full? (1 = Yes, 0 = No): ");
+    scanf("%d", &isCourseFull);
+
+    if (hasPrerequisite == 1) {
+        if (isCourseFull == 0) {
+            printf("\nEnrolled successfully");
+        }	else	{
+            printf("\nCannot enroll: course is full");
+        }
+    } else if (hasPrerequisite == 0)
+	{
+        if (isCourseFull == 1) {
+            printf("\nCannot enroll: prerequisite missing and course is full\n");
+        }	else	{
+            printf("\nCannot enroll: prerequisite missing\n");
+        }
+    }
+    
+    printf("\n");
+    
+    // Question 6
+    
+    char room, action;
+
+    printf("\nEnter room (L = Living Room, K = Kitchen): ");
+    scanf(" %c", &room);
+
+    printf("\nEnter action (L = Lights, T = Thermostat): ");
+    scanf(" %c", &action);
+
+    switch (room) {
+        case 'L':
+            switch (action) {
+                case 'L':
+                    printf("\nAdjusting ambient lighting.");
+                    break;
+                case 'T':
+                    printf("\nSetting living room temperature.");
+                    break;
+                default:
+                    printf("\nInvalid action for Living Room.");
+            }
+            break;
+
+        case 'K':   // Kitchen
+            switch (action) {
+                case 'L':
+                    printf("\nTurning on bright task lighting.");
+                    break;
+                case 'T':
+                    printf("\nSetting kitchen temperature.");
+                    break;
+                default:
+                    printf("\nInvalid action for Kitchen.");
+            }
+            break;
+
+        default:
+            printf("\nInvalid room selection.");
+    }
+    
+    printf("\n");
+    
+	// Question 7
+	
+	int permissions;
+
+    printf("\nEnter permissions (combination of 1=READ, 2=WRITE, 4=EXECUTE): ");
+    scanf("%d", &permissions);
+
+    if (permissions & 4) {  
+        printf("\nAccess granted: full control");
+    } 
+    else if ((permissions & 1) && (permissions & 2)) {  
+        printf("\nAccess granted: read and write");
+    } 
+    else if (permissions & 1) {  
+        printf("\nAccess granted: read-only");
+    } 
+    else {
+        printf("\nAccess denied");
+    }
+
+    return 0;
+    
+}
